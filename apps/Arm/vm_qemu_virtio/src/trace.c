@@ -51,11 +51,12 @@ void trace_init(vm_t *vm)
     if (!kernel_trace) {
         ZF_LOGF("Cannot map kernel log buffer to VMM vspace");
     }
-
+#if 0
     kernel_trace_vm = (uintptr_t)vspace_map_pages(&vm->mem.vm_vspace, &kernel_trace_frame.cptr, NULL, seL4_AllRights, 1, seL4_LargePageBits, true);
     if (!kernel_trace_vm) {
         ZF_LOGF("Cannot map kernel log buffer to VM vspace");
     }
+#endif
 }
 
 void trace_start(void)
